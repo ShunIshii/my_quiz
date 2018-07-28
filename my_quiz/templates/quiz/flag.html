@@ -3,53 +3,52 @@
   <head>
     <link rel="stylesheet" href="{% static 'css/fifa.css' %}">
     <meta charset="UTF-8">
-    <title>FIFAクイズ</title>
+    <title>国旗クイズ</title>
   </head>
 
   <body>
-    <h1>FIFAワールドカップクイズ</h1>
+    <h1>国旗クイズ</h1>
     <a href="../my_quiz" class="square_btn">他のクイズ</a>
     <hr>
     <h2>レベル選択</h2>
     <span type="button" onClick="document.all.item('moji1').style.visibility='visible';q=qa;setReady(q)"><a href="#" class="square_btn">初級</a></span>
     <span type="button" onClick="document.all.item('moji1').style.visibility='visible';q=qb;setReady(q)"><a href="#" class="square_btn">中級</a></span>
-    <span type="button" onClick="document.all.item('moji1').style.visibility='visible';q=qc;setReady(q)"><a href="#" class="square_btn">上級</a></span>
-    <hr>
-    <div id="moji1" style="visibility:hidden">
+
+    <div ID="moji1" style="visibility:hidden">
       <h2>問題</h2>
       <div id="text_q_num"></div>
       <strong><font size="5"><div id="text_q"></div></font></strong>
       <div id="image"></div>
       <h2>選択</h2>
-      <div id="text_s"></div>
+      <div id="text_s">【<a href="javascript:anser(1)"></a>】【<a href="javascript:anser(2)"></a>】【<a href="javascript:anser(3)"></a>】</div>
       <h2>解答</h2>
       <div id="text_a"></div>
     </div>
 
     <script type="text/javascript">
       qa = new Array();
-      qa[0] = ["2018年FIFAワールドカップの優勝国は？","ドイツ","スペイン","フランス",3,0,""];
-      qa[1] = ["日本の結果は？","予選敗退","ベスト16","ベスト8",2,0,""];
-      qa[2] = ["日本が唯一勝利したチームは？","コロンビア","セネガル","ポーランド",1,0,""];
-      qa[3] = ["MVPに輝いた下の選手の名前は?","ハリルホジッチ","モドリッチ","ラキティッチ",2,1,"https://www.soccer-king.jp/wp-content/uploads/2018/03/GettyImages-914658080-800x533.jpg"];
-      qa[4] = ["長友佑都の奥さんは？","堀北真希","平愛梨","北川景子",2,0,""];
-      qa[5] = ["この中で決勝トーナメントに進めなかったチームは？","アルゼンチン","ポルトガル","ドイツ",3,0,""];
-      qa[6] = ["今大会初めて導入された、大事な場面で映像を使って判定するシステムの通称は？","VAR","VDP","VHY",1,0,""];
-      qa[7] = ["2018年の開催国は？","ブラジル","ロシア","アメリカ",2,0,""];
-      qa[8] = ["2022年の開催国は？","カタール","シンガポール","中国",1,0,""];
-      qa[9] = ["大会後に代表引退を表明していない選手は？","本田圭佑","長友佑都","長谷部誠",2,0,""];
+      qa[0] = ["この国旗は？","ドイツ","スペイン","フランス",1,1,"https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg"];
+      qa[1] = ["この国旗は？","北朝鮮","韓国","中国",3,1,"https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg"];
+      qa[2] = ["この国旗は？","ブラジル","アルゼンチン","イタリア",2,1,"https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg"];
+      qa[3] = ["この国旗は？","アメリカ","イギリス","カナダ",2,1,"https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg"];
+      qa[4] = ["この国旗は？","ロシア","カタール","ポルトガル",1,1,"https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg"];
+      qa[5] = ["この国旗は？","チェコ","ウクライナ","クロアチア",2,1,"http://www.abysse.co.jp/world/flag/nis/flagimages/ua250.jpg"];
+      qa[6] = ["この国旗は？","トルコ","エジプト","インド",1,1,"https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg"];
+      qa[7] = ["この国旗は？","ベルギー","オランダ","タイ",3,1,"https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg"];
+      qa[8] = ["この国旗は？","インドネシア","フィリピン","マレーシア",2,1,"https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_the_Philippines.svg"];
+      qa[9] = ["この国旗は？","オーストラリア","ニュージーランド","ケニア",1,1,"https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg"];
 
       qb = new Array();
-      qb[0] = ["2018年FIFAワールドカップの得点王は？","ケイン","メッシ","エムバベ",1,0,""];
-      qb[1] = ["このユニフォームの国は？","ロシア","ポルトガル","エジプト",3,1,"https://1.bp.blogspot.com/-WOzJh5o7LCY/WgCcI1dK3QI/AAAAAAAAvd0/8EmzEuy8mQEatxnTHWppHhRDcF72DZeVQCLcBGAs/s1600/egypt-national-2018-jersey-home-adidas-01-o.jpg"];
-      qb[2] = ["日本の予選通過の決め手は？","フェアプレイ数","得失点","3位の直接対決の結果",1,0,""];
-      qb[3] = ["日本の他に大会間近で監督を解任した国は？","クロアチア","スペイン","韓国",2,0,""];
-      qb[4] = ["ロシアW杯時点のエムバペの年齢は？","18歳","19歳","20歳",2,0,""];
-      qb[5] = ["日本代表でバルセロナとレアルマドリードから得点を取った選手は？","香川真司","柴崎岳","大迫勇也",2,0,""];
-      qb[6] = ["代表引退を決意したイニエスタのクラブ先は？","ヴィッセル神戸","サガン鳥栖","セレッソ大阪",1,0,""];
-      qb[7] = ["日本vsベルギーでのマンオブザマッチに選ばれた選手は？","アザール","乾貴士","ルカク",2,0,""];
-      qb[8] = ["2026年の3カ国開催に伴い変更される点は？","出場国数","登録人数","地域予選の構成",1,0,""];
-      qb[9] = ["日本代表が試合外でも話題になった理由は？","監督と選手の仲の良さ","ロッカールームの清潔さ","ファンサービス",2,0,""];
+      qb[0] = ["この国旗は？","ケニア","ミャンマー","オーストリア",1,1,"https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg"];
+      qb[1] = ["この国旗は？","チュニジア","モロッコ","ナイジェリア",3,1,"https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg"];
+      qb[2] = ["この国旗は？","アンゴラ","南アフリカ","エチオピア",2,1,"https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg"];
+      qb[3] = ["この国旗は？","サウジアラビア","イラク","イラン",2,1,"https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Iraq.svg"];
+      qb[4] = ["この国旗は？","ウズベキスタン","パキスタン","アフガニスタン",1,1,"https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg"];
+      qb[5] = ["この国旗は？","パプアニューギニア","ベトナム","ラオス",3,1,"https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Laos.svg"];
+      qb[6] = ["この国旗は？","チリ","パラグアイ","エクアドル",1,1,"https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg"];
+      qb[7] = ["この国旗は？","メキシコ","モンゴル","ギリシャ",2,1,"https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Mongolia.svg"];
+      qb[8] = ["この国旗は？","ハンガリー","スイス","ブルガリア",1,1,"https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg"];
+      qb[9] = ["この国旗は？","デンマーク","ポーランド","セネガル",2,1,"https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_Poland.svg"];
 
       qc = new Array();
       qc[0] = ["日本代表ユニフォームのブランドは？","ナイキ","アディダス","アンブロ",2,0,""];
